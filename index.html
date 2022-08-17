@@ -74,6 +74,12 @@
       transform: translate(-50%,-50%);
       font: 14px arial;
     }
+
+    video {
+      /* override other styles to make responsive */
+      width: 100%    !important;
+      height: auto   !important;
+    }
 </style>
   </head>
 
@@ -86,13 +92,17 @@
     <!-- Navbar and Header -->
     <nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3">
       <div id="bg-container" class="nav-background">
-        <div class="nav-background bg-image"></div>
+        <div class="nav-background">
+          <video autoplay muted loop id="myVideo">
+            <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+          </video>
+        </div>
         <!-- <video loop playsinline id="video"></video> -->
-        <div class="video-background" style="display: none;">
+        <!-- <div class="video-background" style="display: none;">
           <div class="video-foreground">
               <div id="player"></div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="nav-wrapper container">
         <a href="index.html" class="brand-logo">Skylenses</a>
@@ -509,7 +519,7 @@ Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. D
 
     </div><!-- /.container -->
 
-    <div class="fixed-action-btn click-to-toggle">
+    <!-- <div class="fixed-action-btn click-to-toggle">
       <a id="bg-control" class="btn-floating btn-large grey darken-4 pulse tooltipped" data-position="left" data-delay="50" data-tooltip="Ambience Control">
           <i class="material-icons">music_note</i>
       </a>
@@ -520,7 +530,7 @@ Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. D
           <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="setVolume('up');" data-position="left" data-delay="50" data-tooltip="Volume Up"><i class="material-icons">volume_up</i></a></li>
           <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="setVolume('down');" data-position="left" data-delay="50" data-tooltip="Volume Down"><i class="material-icons">volume_down</i></a></li>
       </ul>
-  </div>
+  </div> -->
 
     <!-- Core Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
