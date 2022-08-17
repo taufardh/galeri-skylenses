@@ -12,27 +12,93 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
     <!-- Stylesheet -->
-    <link href="css/gallery-dark-materialize.min.css" rel="stylesheet">
+    <link href="css/gallery-materialize.min.css" rel="stylesheet">
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      .font-style {
+        font-family: 'Caveat', cursive;
+        text-shadow: 0px 0px 15px rgba(0,0,0,0.55);
+      }
+
+      .video-background {
+        background: #000;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -99;
+      }
+      .video-foreground,
+      .video-background iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (min-aspect-ratio: 16/9) {
+        .video-foreground { height: 300%; top: -100%; }
+      }
+      @media (max-aspect-ratio: 16/9) {
+        .video-foreground { width: 300%; left: -100%; }
+      }
+        
+
+      .bg-image{
+        background-color: black;
+        background: url('../galeri-skylenses/images/banner2.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .nav-background{
+        opacity: .6 !important;
+      }
+  </style>
+  <style type="text/css">
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: #000;
+    }
+    .preloader .loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      font: 14px arial;
+    }
+</style>
   </head>
 
   <body class="blue-grey darken-4">
-
+    <div class="preloader">
+      <div class="loading center">
+        <img src="https://i.gifer.com/yy3.gif" width="50%">
+      </div>
+    </div>
     <!-- Navbar and Header -->
     <nav class="nav-extended nav-full-header z-depth-0 blue-grey darken-3">
-      <div class="nav-background">
-        <img class="active" src="../galeri-skylenses/images/banner2.png" alt="control room">
+      <div id="bg-container" class="nav-background">
+        <div class="nav-background bg-image"></div>
+        <!-- <video loop playsinline id="video"></video> -->
+        <div class="video-background" style="display: none;">
+          <div class="video-foreground">
+              <div id="player"></div>
+          </div>
+        </div>
       </div>
       <div class="nav-wrapper container">
-        <a href="index.html" class="brand-logo"><i class="material-icons">camera</i>Gallery</a>
+        <a href="index.html" class="brand-logo">Skylenses</a>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a class='dropdown-button' href='#' data-activates='feature-dropdown' data-belowOrigin="true" data-constrainWidth="false">Features<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
         <!-- Dropdown Structure -->
         <ul id='feature-dropdown' class='dropdown-content'>
@@ -45,13 +111,14 @@
 
       <div class="nav-header valign-wrapper">
         <div class="center">
-          <h1>Skylenses</h1>
-          <div class="tagline">Color Blindnes</div>
+          <img src="../galeri-skylenses/images/logo.png" alt="logo" width="30%">
+          <h1 class="font-style" style="margin-top: 0px;">Skylenses</h1>
+          <div class="tagline font-style">Color Blindnes</div>
         </div>
       </div>
 
       <!-- Fixed Masonry Filters -->
-      <div class="categories-wrapper">
+      <!-- <div class="categories-wrapper">
         <div class="categories-container">
           <ul class="categories container">
             <li class="active"><a href="#all">All</a></li>
@@ -60,7 +127,7 @@
             <li><a href="#sacred">Sacred Geometry</a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </nav>
     <ul class="side-nav" id="nav-mobile">
       <li><a href="index.html"><i class="material-icons">camera</i>Gallery</a></li>
@@ -71,6 +138,279 @@
       <li><a href="horizontal.html"><i class="material-icons">swap_horiz</i>Horizontal Style</a></li>
       <li><a href="no-image.html"><i class="material-icons">texture</i>No Image Expand</a></li>
     </ul>
+
+    <div id="portfolio" class="section gray">
+      <div class="container">
+        <div class="gallery row">
+          <div class="col l12 m12 s12 gallery-item gallery-filter all">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">About</span>
+                <p>This is my blog where I talk about my everyday life. I typically like to post a couple times a week.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="portfolio" class="section gray">
+      <div class="container">
+        <div class="gallery row">
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter sintel">
+            <div class="gallery-curve-wrapper">
+              <div class="gallery-header">
+                <span>Bedroom</span>
+                <p class="caption">
+                  Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.
+                </p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Grapefruit</h3>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter overhead">
+            <div class="gallery-curve-wrapper">
+              <div class="gallery-header">
+                <span>Workshop</span>
+                <p class="caption">
+                  Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.
+                </p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Grapefruit</h3>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter overhead">
+            <div class="gallery-curve-wrapper">
+              <div class="gallery-header">
+                <span>Kitchen</span>
+                <p class="caption">
+                  Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.
+                </p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Grapefruit</h3>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  <nav class="blue">
+    <div class=" blue darken-1">
+      <div class="">
+        <ul class="">
+          <li class="active"><a href="#all">Intro</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    </div><!-- /.container -->
+    <div id="portfolio" class="section gray">
+      <div class="container">
+        <div class="gallery row">
+          <!-- <div class="col l12 m12 s12 gallery-item gallery-filter all">
+            <div class="card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title">About</span>
+                <p>This is my blog where I talk about my everyday life. I typically like to post a couple times a week.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div> -->
+        
+          <div class="col l6 m6 s12 gallery-item gallery-horizontal gallery-expand gallery-filter polygon">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 250px; width: 170px;">
+                <img src="../galeri-skylenses/images/market/1.png" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <h4>Maze</h4>
+                <p>Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.</p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Maze</h3>
+                  <span class="price">$11.99</span>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+
+                <div class="carousel-wrapper">
+                  <div class="carousel">
+                    <a class="carousel-item" href="#one!"><img src="img/geometric-sun.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="img/geometric-maze.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="img/geometric-ice.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="img/geometric-cave.jpg"></a>
+                    <a class="carousel-item" href="#five!"><img src="img/geometric-grapefruit.jpg"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col l6 m6 s12 gallery-item gallery-horizontal gallery-expand gallery-filter polygon">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 250px; width: 170px;">
+                <img src="../galeri-skylenses/images/market/1.png" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <h4>Maze</h4>
+                <p>Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.</p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Maze</h3>
+                  <span class="price">$11.99</span>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+
+                <div class="carousel-wrapper">
+                  <div class="carousel">
+                    <a class="carousel-item" href="#one!"><img src="img/geometric-sun.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="img/geometric-maze.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="img/geometric-ice.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="img/geometric-cave.jpg"></a>
+                    <a class="carousel-item" href="#five!"><img src="img/geometric-grapefruit.jpg"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col l6 m6 s12 gallery-item gallery-horizontal gallery-expand gallery-filter polygon">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 250px; width: 170px;">
+                <img src="../galeri-skylenses/images/market/1.png" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <h4>Maze</h4>
+                <p>Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.</p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Maze</h3>
+                  <span class="price">$11.99</span>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+
+                <div class="carousel-wrapper">
+                  <div class="carousel">
+                    <a class="carousel-item" href="#one!"><img src="img/geometric-sun.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="img/geometric-maze.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="img/geometric-ice.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="img/geometric-cave.jpg"></a>
+                    <a class="carousel-item" href="#five!"><img src="img/geometric-grapefruit.jpg"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col l6 m6 s12 gallery-item gallery-horizontal gallery-expand gallery-filter polygon">
+            <div class="gallery-curve-wrapper">
+              <a class="gallery-cover gray" style="height: 250px; width: 170px;">
+                <img src="../galeri-skylenses/images/market/1.png" alt="placeholder">
+              </a>
+              <div class="gallery-header">
+                <h4>Maze</h4>
+                <p>Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice.</p>
+              </div>
+              <div class="gallery-body">
+                <div class="title-wrapper">
+                  <h3>Maze</h3>
+                  <span class="price">$11.99</span>
+                </div>
+                <p class="description">
+Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                <p class="description">
+Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+
+                <div class="carousel-wrapper">
+                  <div class="carousel">
+                    <a class="carousel-item" href="#one!"><img src="img/geometric-sun.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="img/geometric-maze.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="img/geometric-ice.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="img/geometric-cave.jpg"></a>
+                    <a class="carousel-item" href="#five!"><img src="img/geometric-grapefruit.jpg"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="gallery-action">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /.container -->
+
+    <nav class="blue">
+      <div class="blue darken-3">
+        <div class="" style="top: 0px;">
+          <ul class="">
+            <!-- <h5>Product</h5> -->
+            <li class="active"><a href="#all">Product</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Gallery -->
     <div id="portfolio" class="section gray">
@@ -169,6 +509,27 @@ Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. D
 
     </div><!-- /.container -->
 
+    <div class="fixed-action-btn click-to-toggle">
+      <a id="bg-control" class="btn-floating btn-large grey darken-4 pulse tooltipped" data-position="left" data-delay="50" data-tooltip="Ambience Control">
+          <i class="material-icons">music_note</i>
+      </a>
+      <ul>
+          <li><a id="vid_control" class="btn-floating btn-large red tooltipped" onclick="playVid();"><i class="material-icons large">play_arrow</i></a></li>
+          <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="nextVideo();" data-position="left" data-delay="50" data-tooltip="Next Video"><i class="material-icons">skip_next</i></a></li>
+          <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="prevVideo();" data-position="left" data-delay="50" data-tooltip="Previous Video"><i class="material-icons">skip_previous</i></a></li>
+          <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="setVolume('up');" data-position="left" data-delay="50" data-tooltip="Volume Up"><i class="material-icons">volume_up</i></a></li>
+          <li><a class="btn-floating grey darken-3 waves-effect tooltipped" onclick="setVolume('down');" data-position="left" data-delay="50" data-tooltip="Volume Down"><i class="material-icons">volume_down</i></a></li>
+      </ul>
+  </div>
+  
+  <!-- Tap Target Structure -->
+  <div class="tap-target white-text" style="background-color: #3a3a3a;" data-activates="bg-control">
+      <div class="tap-target-content font-style">
+          <h1>Welcome</h1>
+          <p>Tap Play for listen Ambience Sound</p>
+      </div>
+  </div>
+
 
     <!-- Core Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -178,6 +539,118 @@ Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. D
     <script src="js/color-thief.min.js"></script>
     <script src="js/galleryExpand.js"></script>
     <script src="js/init.js"></script>
+
+    <script>
+      $(window).on("load", function() {
+          $(".preloader").fadeOut(3000); 
+      });
+
+      var videoPlaylist = [
+      {
+        position: "0",
+        title: "Video Promotion.",
+        videoId: "IMoEaQJPIjQ"
+      }];
+
+
+      let rainPlay = 0;
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      var offsetHeight = document.getElementById('bg-container').offsetHeight;
+      var offsetWidth = document.getElementById('bg-container').offsetWidth;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+
+          height: '1024',
+          width: '1024',
+          videoId: 'IMoEaQJPIjQ',
+          playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'showinfo': 0,
+            'modestbranding': 0,
+            'loop': 1,
+            'fs': 0,
+            'cc_load_policty': 0,
+            'iv_load_policy': 3
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+
+      function onPlayerReady(event) {
+        // event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.ENDED) {
+          setTimeout(player.playVideo(),3000);
+
+        }
+      }
+
+      function playVid() {
+        if(player.getPlayerState() == 1){
+          /*isPlaying*/
+          player.stopVideo();
+          $('#vid_control').html('<i class="material-icons large">play_arrow</i>');
+          $('.bg-image').removeAttr("style");
+          $('.video-background').attr("style", "display: none;");
+        }else{
+          player.playVideo();
+          $('#vid_control').html('<i class="material-icons large">stop</i>');
+          $('.bg-image').attr("style", "display: none;");
+          $('.video-background').removeAttr("style");
+        }
+      }
+
+      function nextVideo(){
+        player.stopVideo();
+        if(rainPlay < videoPlaylist.length-1){
+          rainPlay = rainPlay+1;
+        }else{
+          rainPlay = 0;
+        }
+        player.loadVideoById(videoPlaylist[rainPlay].videoId);
+        player.playVideo();
+        player.seekTo(5);
+      }
+
+      function prevVideo(){
+        if(rainPlay > 0){
+          rainPlay = rainPlay-1;
+        }else{
+          rainPlay = videoPlaylist.length-1;
+        }
+
+        player.stopVideo();
+        player.loadVideoById(videoPlaylist[rainPlay].videoId);
+        player.seekTo(5);
+      }
+
+      function setVolume(change){
+        var curr_volume = player.getVolume();
+        if(change == 'up'){
+            curr_volume = curr_volume + 10;
+            player.setVolume(curr_volume);
+        }
+        else if(change == 'down'){
+            curr_volume = curr_volume - 10;
+            player.setVolume(curr_volume);
+            //player.setVolume(volume);
+        }
+      }
+
+    </script>
 
   </body>
 </html>
